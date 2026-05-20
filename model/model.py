@@ -19,4 +19,11 @@ class Model:
         self.addEdgesPesati(genere_id)
 
     def addEdgesPesati(self,genere_id):
-        pass
+        pesiArtisti = DAO.getPesoEdges(genere_id)
+        for p in pesiArtisti:
+           artista= self._idMapArtisti[p(1)]
+           artista.popolarita=p(0)
+
+        allEdges = DAO.getAllEdges(genere_id)
+        for edge in allEdges:
+            self._graph.add_edge(edge,)
