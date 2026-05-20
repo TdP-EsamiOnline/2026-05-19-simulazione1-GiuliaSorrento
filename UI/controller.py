@@ -7,9 +7,22 @@ class Controller:
         self._view = view
         # the model, which implements the logic of the program and holds the data
         self._model = model
+        self._genere= None
 
     def fillDDGenre(self):
-        pass
+        #riempi il dropdown con tutti i generi
+        generi = self._model.getAllGeneri()
+        for g in generi:
+            self._view._ddGenre.options.append(ft.dropdown.Option(text=g.Name,
+                                                                  data=g,
+                                                                  on_click=self.read_genere))
+        self._view.update_page()
+
+    def read_genere(self,e):
+        if e.control.data == None:
+            self._genere = None
+        else:
+            self._genere=e.control.data
 
     def handleCreaGrafo(self, e):
         pass
