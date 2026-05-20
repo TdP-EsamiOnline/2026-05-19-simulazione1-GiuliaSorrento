@@ -24,6 +24,6 @@ class Model:
            artista= self._idMapArtisti[p(1)]
            artista.popolarita=p(0)
 
-        allEdges = DAO.getAllEdges(genere_id)
-        for edge in allEdges:
-            self._graph.add_edge(edge,)
+       # allEdges = DAO.getAllEdges(genere_id)
+       # for edge in allEdges:
+           # self._graph.add_edge(edge,)
