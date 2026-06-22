@@ -27,7 +27,7 @@ class DAO():
 
         results = []
 
-        cursor = conn.cursor(dictionary=True)
+        cursor = conn.cursor(dictionary=True)   #QUERY DEI NODI SEMPLICE, INSERISCO SOLO LA CONDIZIONE DEL GENERE
         query = """SELECT distinct art.ArtistId as  ArtistID,  art.Name as Name
                     from artist art, album a, track t, genre g 
                     where art.ArtistId = a.ArtistId 
@@ -50,7 +50,9 @@ class DAO():
 
         results = []
 
-        cursor = conn.cursor(dictionary=True)
+        cursor = conn.cursor(dictionary=True)   #FACCIO UNA QUERY CHE NON MI CALCOLA NE GLI ARCHI NE IL PESO DI ESSI
+        #MI CALCOLA UNA LISTA IN CUI METTO TUPLE CON CLIENTE, ARTISTA, NUMEROTRACCIEVENDUTE DA QUELL'ARTISTA A QUEL CLIENTE
+        #ARCHI E PESO VERRANNO GESTITI NEL MDOEL
         query = """select i.CustomerId, art.ArtistId, count(*) as ntracks
                     from invoice i, invoiceline i2, track t, genre g, artist art,album a
                     where i.InvoiceId  = i2.InvoiceId 
